@@ -38,13 +38,6 @@ class Concentration
             
             
         }
-        
-        
-//        if cards[index].isFaceUp {
-//            cards[index].isFaceUp = false
-//        } else {
-//            cards[index].isFaceUp = true
-//        }
     }
     
     init(numberOfPairsOfCards: Int){
@@ -53,7 +46,7 @@ class Concentration
             cards += [card, card]
         }
         
-        //TODO: Shuffle the cards
+        //Shuffle the cards
         cards.shuffle()
         
     }
