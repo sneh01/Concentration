@@ -13,6 +13,8 @@
 		3F974BF32429B75F00C3450E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F974BF12429B75F00C3450E /* Main.storyboard */; };
 		3F974BF52429B76100C3450E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F974BF42429B76100C3450E /* Assets.xcassets */; };
 		3F974BF82429B76100C3450E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F974BF62429B76100C3450E /* LaunchScreen.storyboard */; };
+		3F974C01242A698E00C3450E /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F974C00242A698E00C3450E /* Concentration.swift */; };
+		3F974C03242A6A8500C3450E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F974C02242A6A8500C3450E /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3F974BF42429B76100C3450E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F974BF72429B76100C3450E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F974BF92429B76100C3450E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F974C00242A698E00C3450E /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Concentration.swift; path = "Supporting files/Concentration.swift"; sourceTree = "<group>"; };
+		3F974C02242A6A8500C3450E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,25 @@
 		3F974BEA2429B75F00C3450E /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				3F974BEB2429B75F00C3450E /* AppDelegate.swift */,
-				3F974BED2429B75F00C3450E /* SceneDelegate.swift */,
+				3F974C00242A698E00C3450E /* Concentration.swift */,
+				3F974C02242A6A8500C3450E /* Card.swift */,
 				3F974BEF2429B75F00C3450E /* ViewController.swift */,
 				3F974BF12429B75F00C3450E /* Main.storyboard */,
-				3F974BF42429B76100C3450E /* Assets.xcassets */,
-				3F974BF62429B76100C3450E /* LaunchScreen.storyboard */,
+				3F974BFF2429B7E600C3450E /* Supporting files */,
 				3F974BF92429B76100C3450E /* Info.plist */,
 			);
 			path = Concentration;
+			sourceTree = "<group>";
+		};
+		3F974BFF2429B7E600C3450E /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				3F974BED2429B75F00C3450E /* SceneDelegate.swift */,
+				3F974BEB2429B75F00C3450E /* AppDelegate.swift */,
+				3F974BF42429B76100C3450E /* Assets.xcassets */,
+				3F974BF62429B76100C3450E /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F974BF02429B75F00C3450E /* ViewController.swift in Sources */,
+				3F974C01242A698E00C3450E /* Concentration.swift in Sources */,
+				3F974C03242A6A8500C3450E /* Card.swift in Sources */,
 				3F974BEC2429B75F00C3450E /* AppDelegate.swift in Sources */,
 				3F974BEE2429B75F00C3450E /* SceneDelegate.swift in Sources */,
 			);
@@ -284,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AYLUDZ54CB;
 				INFOPLIST_FILE = Concentration/Info.plist;
@@ -302,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AYLUDZ54CB;
 				INFOPLIST_FILE = Concentration/Info.plist;
