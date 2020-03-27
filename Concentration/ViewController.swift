@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     }
     
     
+    
+    
     @IBOutlet private weak var flipCountLabel: UILabel!
     
     @IBOutlet private var cardButtons: [UIButton]!
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func startNewGame(_ sender: UIButton) {
-        emojiChoices = [ "🗽", "🐉" ,"🦁", "🧲", "🤯", "🥶", "😡", "🤮", "💀", "🐣", "🐥" ,"🐠","🌎","🔥", "🍩", "🎱", "🏀", "🎲", "🎉","♠️","♦️" , "😬","👻","🧠" ]
+        emojiChoices = theme[theme.count.randomNumber]
         
         flipCount = 0
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
@@ -74,7 +76,16 @@ class ViewController: UIViewController {
         }
     }
     
-    private var emojiChoices: Array<String> = [ "🗽", "🐉" ,"🦁", "🧲", "🤯", "🥶", "😡", "🤮", "💀", "🐣", "🐥" ,"🐠","🌎","🔥", "🍩", "🎱", "🏀", "🎲", "🎉","♠️","♦️" , "😬","👻","🧠" ]
+    private var theme = [
+                        ["😃","😅", "😂", "🤣", "😇", "🙃", "😜", "🧐" ],
+                        ["😸","😹", "😻", "😼", "😽", "🙀", "😿", "😾" ],
+                        ["🐶","🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼" ],
+                        ["🥨","🍕", "🥪", "🌮", "🍩", "🍫", "🍪", "🧁" ],
+                        ["⚽️","🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🎱" ],
+                        ["🎄","🌿", "🍀", "🌵", "🌴", "🌾", "🎍", "🎋" ],
+                        ]
+    
+    lazy private var emojiChoices: Array<String> = theme[theme.count.randomNumber]
     
     private var emoji = [Int: String] ()
     
@@ -85,6 +96,8 @@ class ViewController: UIViewController {
         return emoji[card.identifier] ?? "?"
         
     }
+    
+    
  
 }
 
