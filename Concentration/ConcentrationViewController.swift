@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards )
     
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func startNewGame(_ sender: UIButton) {
-        emojiChoices = theme[theme.count.randomNumber]
+        emojiChoices = theme ?? ""
         
         flipCount = 0
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
@@ -61,40 +61,41 @@ class ViewController: UIViewController {
     
     
     private func updateViewFromModel() {
-        for index in cardButtons.indices{
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        if cardButtons != nil{
+            for index in cardButtons.indices{
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                if card.isFaceUp {
+                    button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                    button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+                    
+                } else {
+                    button.setTitle("", for: UIControl.State.normal)
+                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) :  #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+                }
                 
-            } else {
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) :  #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
             }
-            
         }
     }
     
-    private var theme = [
-                        ["😃","😅", "😂", "🤣", "😇", "🙃", "😜", "🧐" ],
-                        ["😸","😹", "😻", "😼", "😽", "🙀", "😿", "😾" ],
-                        ["🐶","🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼" ],
-                        ["🥨","🍕", "🥪", "🌮", "🍩", "🍫", "🍪", "🧁" ],
-                        ["⚽️","🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🎱" ],
-                        ["🎄","🌿", "🍀", "🌵", "🌴", "🌾", "🎍", "🎋" ],
-                        ]
+    var theme: String? {
+        didSet{
+            emojiChoices = theme ?? ""
+            emoji = [:]
+            updateViewFromModel()
+        }
+    }
     
-    lazy private var emojiChoices: Array<String> = theme[theme.count.randomNumber]
+    private var emojiChoices = "🥨🍕🥪🌮🍩🍫🍪🧁"
     
-    private var emoji = [Int: String] ()
+    private var emoji = [Card: String] ()
     
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.randomNumber)
+        if emoji[card] == nil, emojiChoices.count > 0 {
+            let stringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.randomNumber)
+            emoji[card] = String(emojiChoices.remove(at: stringIndex))
         }
-        return emoji[card.identifier] ?? "?"
-        
+        return emoji[card] ?? "?"
     }
     
     
