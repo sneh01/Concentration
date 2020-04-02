@@ -66,8 +66,17 @@ class ConcentrationViewController: UIViewController {
                 let button = cardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp {
-                    button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                    button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+                    UIView.transition(with: button,
+                                      duration: 0.6,
+                                      options: .transitionFlipFromLeft,
+                                      animations: {
+                                        button.setTitle(self.emoji(for: card), for: UIControl.State.normal)
+                                        button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+                    }
+                        //                                      completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>
+                    )
+                    
+                    
                     
                 } else {
                     button.setTitle("", for: UIControl.State.normal)

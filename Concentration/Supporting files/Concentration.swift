@@ -33,7 +33,7 @@ struct Concentration
         }
     }
     
-    private(set) var score = 0 
+    
     
     mutating func chooseCard(at index: Int) {
         
@@ -43,14 +43,13 @@ struct Concentration
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
-                    score += 2
                 }
                 cards[index].isFaceUp = true
                 
             } else {
                 //either no cards or 2 cards are face up
                 indexOfOneAndOnlyFaceUpCard = index
-                score -= 1
+                
             }
             
             
